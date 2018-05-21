@@ -27,8 +27,17 @@ function ClickToAdvance(frame_images, target_div, x, y) {
      * you can uncomment the line below to add this object as the event listener
      * for clicks on the image.
      */
+
+    this.handleEvent = function(event){
+        this.frame++;
+        if(this.frame === 3){
+            this.frame = 0;
+        }
+        this.img.src = this.images[this.frame];
+        target_div.appendChild(this.img);
+    }
      
-     // this.img.addEventListener("click", this);
+     this.img.addEventListener("click", this);
 }
 
 for(var i = 0; i < 5; i++) {
